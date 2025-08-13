@@ -34,7 +34,12 @@ export default defineNuxtConfig({
   vite: {
     plugins: [
       tailwindcss()
-    ]
+    ],
+    resolve: {
+      alias: {
+        "@libs/*": '../../libs/*',
+      }
+    }
   },
   primevue: {
     options: {
@@ -42,5 +47,5 @@ export default defineNuxtConfig({
         preset
       },
     }
-  }
+  },
 })

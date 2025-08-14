@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen relative">
+  <div class="min-h-screen relative">
     <ClientOnly>
       <vue-particles
         class="-z-10 absolute h-full w-full"
@@ -8,7 +8,7 @@
         @particles-loaded="particlesLoaded"
       />
     </ClientOnly>
-    <div class="h-full">
+    <div class="h-full" :class="props.class">
       <slot />
     </div>
   </div>
@@ -16,6 +16,9 @@
 
 <script lang="ts" setup>
 import type { ISourceOptions, Container } from "@tsparticles/engine";
+const props = defineProps<{
+  class?: string;
+}>();
 const options: ISourceOptions = {
   smooth: true,
   fullScreen: false,
@@ -28,7 +31,7 @@ const options: ISourceOptions = {
       enable: true,
     },
     number: {
-      value: 30,
+      value: 300,
     },
     color: {
       value: "#e0e7ff",
@@ -36,9 +39,7 @@ const options: ISourceOptions = {
   },
 };
 
-const particlesLoaded = (container?: Container) => {
-  console.log(container);
-};
+const particlesLoaded = (container?: Container) => {};
 </script>
 
 <style></style>

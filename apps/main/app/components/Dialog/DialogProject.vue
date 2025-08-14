@@ -2,9 +2,7 @@
   <div v-if="data">
     <Galleria :value="data.gallery" :num-visible="3">
       <template #item="slotProps">
-        <div
-          class="w-full h-48 bg-white relative border-b border-gray-100"
-        >
+        <div class="w-full h-48 md:h-52 bg-white relative border-b border-gray-100">
           <NuxtImg
             :src="slotProps.item.src"
             :alt="slotProps.item.alt"
@@ -14,27 +12,33 @@
         </div>
       </template>
       <template #thumbnail="slotProps">
-        <img :src="slotProps.item.src" :alt="slotProps.item.alt" class="w-full h-8 bg-gray-100" />
+        <img
+          :src="slotProps.item.src"
+          :alt="slotProps.item.alt"
+          class="w-full h-8 bg-gray-100"
+        />
       </template>
     </Galleria>
-    
-    <div class="space-y-2 p-4">
-      <div class="flex flex-col gap-2">
-        <span class="font-bold text-lg text-indigo-500">{{ data.title }}</span>
-        <div class="flex gap-2">
-          <div v-for="techStack in data.techStack" :key="techStack.label">
-            <Icon :name="techStack.icon" />
+
+    <div class="p-4 md:p-8 space-y-4">
+      <div class="space-y-2">
+        <div class="flex flex-col gap-2 md:gap-4">
+          <span class="font-bold text-lg md:text-xl text-indigo-500">{{ data.title }}</span>
+          <div class="flex gap-2">
+            <div v-for="techStack in data.techStack" :key="techStack.label">
+              <Icon :name="techStack.icon" class="md:text-2xl" />
+            </div>
           </div>
         </div>
+        <h2 class="font-medium md:text-lg">About the project</h2>
+        <p class="text-xs md:text-sm line-clamp-4">
+          {{ data.description }}
+        </p>
       </div>
-      <h2 class="font-medium">About the project</h2>
-      <p class="text-xs line-clamp-4">
-        {{ data.description }}
-      </p>
-    </div>
-    <div class="p-4 space-y-1">
-      <Button icon="pi pi-github" label="Github" fluid outlined />
-      <Button icon="pi pi-external-link" label="Demo" fluid outlined />
+      <div class="space-y-1 md:space-y-2">
+        <Button icon="pi pi-github" label="Github" fluid outlined />
+        <Button icon="pi pi-external-link" label="Demo" fluid outlined />
+      </div>
     </div>
   </div>
 </template>

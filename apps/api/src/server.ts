@@ -9,7 +9,7 @@ const server = fastify()
 
 server
     .register(fastifyRateLimit, {
-        max: 1,
+        max: 3,
         timeWindow: '1 minute',
         hook: 'onRequest',
     })

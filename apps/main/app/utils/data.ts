@@ -83,6 +83,7 @@ export const events = [
             "animate-enter fade-in-10 slide-in-from-r-10 animate-duration-1500",
         animateMobile:
             "animate-enter fade-in-10 slide-in-from-r-10 animate-duration-1500",
+        startDate: "November 2024"
     },
     {
         company: "My Dream Visa LLC",
@@ -92,6 +93,7 @@ export const events = [
             "animate-enter fade-in-10 slide-in-from-l-10 animate-duration-1500",
         animateMobile:
             "animate-enter fade-in-10 slide-in-from-r-10 animate-duration-1500",
+        startDate: "February 2024"
     },
     {
         company: "Lucky Savers",
@@ -101,6 +103,7 @@ export const events = [
             "animate-enter fade-in-10 slide-in-from-r-10 animate-duration-1500",
         animateMobile:
             "animate-enter fade-in-10 slide-in-from-r-10 animate-duration-1500",
+        startDate: "January 2024"
     },
 ];
 

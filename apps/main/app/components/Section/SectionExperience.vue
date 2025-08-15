@@ -44,9 +44,11 @@
           </Card>
         </template>
 
-        <template #opposite>
+        <template #opposite="slotProps">
           <div class="w-20">
-            <span class="text-xs text-gray-400 line-clamp-1">June 2025</span>
+            <span class="text-xs text-gray-400 line-clamp-1">{{
+              slotProps.item.startDate
+            }}</span>
           </div>
         </template>
       </Timeline>
@@ -55,10 +57,7 @@
     <div class="hidden md:block px-2">
       <Timeline :value="events" align="alternate" class="w-full">
         <template #content="slotProps">
-          <Card
-            v-animateonscroll="{ enterClass: slotProps.item.animate }"
-            class="my-4"
-          >
+          <Card v-animateonscroll="{ enterClass: slotProps.item.animate }" class="my-4">
             <template #content>
               <span
                 class="text-sm md:text-[16px] font-medium text-indigo-500 line-clamp-1"
@@ -74,9 +73,9 @@
           </Card>
         </template>
 
-        <template #opposite>
+        <template #opposite="slotProps">
           <div>
-            <span class="text-xs md:text-sm text-gray-400">June 2025</span>
+            <span class="text-xs md:text-sm text-gray-400">{{ slotProps.item.startDate }}</span>
           </div>
         </template>
       </Timeline>

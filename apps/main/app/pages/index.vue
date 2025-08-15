@@ -14,9 +14,6 @@
 </template>
 
 <script lang="ts" setup>
-useHead({
-  title: "Florenz De Jesus",
-});
 </script>
 
 <style>

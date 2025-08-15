@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@libs/remult": "workspace:*",
     "@libs/types": "workspace:*",
     "@nuxt/eslint": "1.8.0",
     "@nuxt/fonts": "0.11.4",
@@ -23,8 +24,10 @@
     "nuxt": "^4.0.3",
     "primeicons": "^7.0.0",
     "primevue": "^4.3.7",
+    "remult": "^3.1.2",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.1.11",
+    "tailwindcss-primeui": "^0.6.1",
     "tsparticles": "^3.9.1",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"

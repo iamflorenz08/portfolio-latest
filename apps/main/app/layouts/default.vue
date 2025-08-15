@@ -31,6 +31,7 @@
               @click="
                 selectedNav = nav;
                 navPopOver?.toggle($event);
+                gotoSection(nav.sectionId);
               "
               variant="text"
             >
@@ -52,7 +53,12 @@
           :pt="{ label: 'text-xs', root: '!px-0' }"
         /> -->
 
-        <Button label="Get In Touch" :pt="{ root: '!rounded-full' }" size="small" />
+        <Button
+          label="Get In Touch"
+          :pt="{ root: '!rounded-full' }"
+          size="small"
+          @click="gotoSection('contactSection')"
+        />
       </div>
     </div>
   </nav>
@@ -66,32 +72,60 @@ const navs = [
   {
     label: "Introduction",
     icon: "material-symbols:person-raised-hand-outline",
+    sectionId: "introductionSection",
   },
   {
     label: "Education",
     icon: "material-symbols:book-4-spark-outline",
+    sectionId: "educationSection",
   },
   {
     label: "Technical Skills",
     shortLabel: "Skills",
     icon: "material-symbols:computer-outline",
+    sectionId: "skillsSection",
   },
   {
     label: "Professional Experience",
     shortLabel: "Experience",
     icon: "material-symbols:home-work-outline",
+    sectionId: "experienceSection",
   },
   {
     label: "Projects",
     icon: "material-symbols:code-blocks-outline",
+    sectionId: "projectsSection",
   },
   {
     label: "Contact",
     icon: "material-symbols:call-outline",
+    sectionId: "contactSection",
   },
 ];
 const navPopOver = ref<PopoverMethods>();
-const selectedNav = ref<typeof navs[number]>(navs[0]!);
+const selectedNav = ref<(typeof navs)[number]>(navs[0]!);
+
+onMounted(() => {
+  const sections = document.querySelectorAll("[id]");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const newSectionId = entries.find(
+        (entry) =>
+          entry.isIntersecting &&
+          navs.map((nav) => nav.sectionId).includes(entry.target.id)
+      )?.target.id;
+      if (!newSectionId) return;
+      if (newSectionId !== selectedNav.value.sectionId) {
+        selectedNav.value = navs.find((nav) => nav.sectionId === newSectionId)!;
+      }
+    },
+    {
+      threshold: 0.5,
+      rootMargin: "0px 0px -45% 0px",
+    }
+  );
+  sections.forEach((section) => observer.observe(section));
+});
 </script>
 
 <style></style>

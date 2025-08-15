@@ -11,5 +11,7 @@ export type TProject = {
     gallery: {
         src: string;
         alt: string;
-    }[]
+    }[];
+    githubLink?: string;
+    demoLink?: string;
 };

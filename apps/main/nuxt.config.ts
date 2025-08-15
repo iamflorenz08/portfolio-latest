@@ -39,6 +39,14 @@ export default defineNuxtConfig({
       alias: {
         "@libs/*": '../../libs/*',
       }
+    },
+    server: {
+      proxy: {
+        '/api': {
+          target: process.env.API_URL || 'http://localhost:5000',
+          changeOrigin: true,
+        }
+      }
     }
   },
   primevue: {

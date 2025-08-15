@@ -41,6 +41,7 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "apps/api/dist/"
           target: "/home/florenz/portfolio/api"
+          strip_components: 3
 
       - name: Deploy Portfolio
         uses: appleboy/scp-action@v1
@@ -50,4 +51,4 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "apps/main/.output/"
           target: "/home/florenz/portfolio/main"
-          strip_components: 1
+          strip_components: 3

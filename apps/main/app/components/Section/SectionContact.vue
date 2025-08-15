@@ -142,12 +142,12 @@
               size="52"
             />
             <Icon
-              v-if="result.success"
+              v-else
               name="gridicons:cross-circle"
               class="text-red-600"
               size="52"
             />
-            <span>{{ result.message }}</span>
+            <span class="text-center text-gray-400">{{ result.message }}</span>
           </div>
           <Button label="Close" severity="secondary" @click="result = null" />
         </div>

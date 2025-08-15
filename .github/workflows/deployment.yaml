@@ -39,7 +39,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "./apps/api/dist/*"
+          source: "apps/api/dist/"
           target: "/home/florenz/portfolio/api"
 
       - name: Deploy Portfolio
@@ -48,5 +48,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "./apps/main/.output/*"
+          source: "apps/main/.output/"
           target: "/home/florenz/portfolio/main"
+          strip_components: 1

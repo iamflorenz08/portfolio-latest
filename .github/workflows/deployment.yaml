@@ -27,18 +27,26 @@ jobs:
 
       - name: Build
         run: |
-          cd apps/api
           pnpm run build
 
       - name: Package API
         run: |
           cp -r ./apps/api/src/files ./apps/api/dist/
 
-      - name: Deploy
+      - name: Deploy API
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           source: "./apps/api/dist/"
-          target: "~/portfolio-api"
+          target: "/home/florenz/portfolio/api"
+
+      - name: Deploy Portfolio
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          source: "./apps/main/.output/"
+          target: "/home/florenz/portfolio/main"

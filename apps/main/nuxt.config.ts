@@ -59,4 +59,15 @@ export default defineNuxtConfig({
       },
     }
   },
+  app: {
+    head: {
+      title: 'Florenz De Jesus',
+      link: [
+        {
+          rel: 'icon',
+          href: '/favicon.ico'
+        }
+      ],
+    }
+  }
 })

@@ -66,6 +66,7 @@
 </template>
 
 <script lang="ts" setup>
+import { gotoSection } from "~/utils/scroll";
 import type { PopoverMethods } from "primevue/popover";
 
 const navs = [
@@ -103,7 +104,7 @@ const navs = [
   },
 ];
 const navPopOver = ref<PopoverMethods>();
-const selectedNav = ref<(typeof navs)[number]>(navs[0]!);
+const selectedNav = ref<typeof navs[number]>(navs[0]!);
 
 onMounted(() => {
   const sections = document.querySelectorAll("[id]");

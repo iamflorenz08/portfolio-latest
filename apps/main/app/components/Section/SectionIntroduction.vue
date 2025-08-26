@@ -63,7 +63,7 @@
             }"
             class="text-sm md:text-[16px] text-gray-500"
           >
-            With 3+ years of experience, including over a year in a professional
+            With 4 years of experience, including over a year in a professional
             setting. Successfully engineered and deployed end-to-end software
             solutions — from initial concept and architecture design to
             production launch — delivering high-performance applications that
